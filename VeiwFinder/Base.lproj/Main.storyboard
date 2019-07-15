@@ -54,7 +54,7 @@
         <!--Add New Image-->
         <scene sceneID="Frw-aD-2SP">
             <objects>
-                <viewController id="IDK-72-rtw" sceneMemberID="viewController">
+                <viewController id="IDK-72-rtw" customClass="AddPhotoViewController" customModule="VeiwFinder" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7KL-0N-Lia">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,11 +82,30 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Take Picture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFt-FX-z3P">
+                                <rect key="frame" x="39" y="433" width="85" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="takePictureTapped:" destination="IDK-72-rtw" eventType="touchUpInside" id="hsy-WX-uJY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ois-LO-JUg">
+                                <rect key="frame" x="220" y="433" width="194" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add picture from the Library"/>
+                                <connections>
+                                    <action selector="PictureFromLibraryTapped:" destination="IDK-72-rtw" eventType="touchUpInside" id="rid-hM-Xvz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83637546289999998" blue="0.84733895049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="NRQ-u3-3c8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Image" id="CUC-k1-fJw"/>
+                    <connections>
+                        <outlet property="newImage" destination="kLS-Hs-kVy" id="AXR-tX-6ev"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="be3-xk-0yO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
