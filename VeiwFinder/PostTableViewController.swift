@@ -12,6 +12,20 @@ import UIKit
 
 class PostTableViewController: UITableViewController {
     var photos : [Photos] = []
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailSegue" {
+            if let photoDetailView = segue.destination as? PhotoDetailViewController {
+                if let photoToSend = sender as? Photos {
+                    photoDetailView.image = photoToSend
+                }
+            }
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DetailSegue", sender: photos[indexPath.row])
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +56,9 @@ class PostTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
     
-    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return photos.count
+    }
 
    
 

@@ -46,6 +46,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="XIO-yR-OIQ" kind="show" identifier="DetailSegue" id="bOr-b8-yeU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLG-1T-uCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,6 +123,30 @@
                 <exit id="Wmw-NO-dgd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1721.7391304347827" y="127.90178571428571"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="kPE-fw-9Jy">
+            <objects>
+                <viewController id="XIO-yR-OIQ" customClass="PhotoDetailViewController" customModule="VeiwFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kuT-OQ-Bm3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sjh-Yf-kMG">
+                                <rect key="frame" x="20" y="164" width="374" height="309"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="vme-rQ-W5U"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageData" destination="Sjh-Yf-kMG" id="Sqd-RO-Zmc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2k-l8-UzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2620.289855072464" y="133.92857142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Sh-Yj-47e">
