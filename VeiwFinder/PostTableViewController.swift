@@ -6,14 +6,18 @@
 //  Copyright © 2019 Apple. All rights reserved.
 //
 
-//I am at line eight of Set up Table View‼️
+
 
 import UIKit
 
 class PostTableViewController: UITableViewController {
+    var photos : [Photos] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -21,25 +25,52 @@ class PostTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    func getPhotos () {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
+            
+            if let coreDataPhotos = try? context.fetch(Photos.fetchRequest()) as? [Photos] {
+                photos = coreDataPhotos
+                tableView.reloadData()
+                
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getPhotos()
+    }
     // MARK: - Table view data source
+    
+    
 
    
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
-    }
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = UITableViewCell()
+        let cell = UITableViewCell()
         
-
-        // Configure the cell...
-
-        return cell
+        let cellPhoto = photos[indexPath.row]
+        
+        cell.textLabel?.text = cellPhoto.caption
+        
+        if let cellPhotoImageData = cellPhoto.photo {
+            if let cellPhotoImage = UIImage(data: cellPhotoImageData) {
+                cell.imageView?.image = cellPhotoImage
+            }
+        }
+        
+      return cell
     }
+    
+   
+    }
+    
+    
+    
+        
+    
+    
+    
     
 
     /*
@@ -87,4 +118,4 @@ class PostTableViewController: UITableViewController {
     }
     */
 
-}
+

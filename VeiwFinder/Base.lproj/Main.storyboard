@@ -13,7 +13,7 @@
         <!--View Finder-->
         <scene sceneID="4Uo-vi-mvt">
             <objects>
-                <tableViewController id="j6w-1Z-Pdm" sceneMemberID="viewController">
+                <tableViewController id="j6w-1Z-Pdm" customClass="PostTableViewController" customModule="VeiwFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6n6-UT-C52">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,6 +69,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="captionText:" destination="Wmw-NO-dgd" eventType="editingDidEnd" id="K3m-73-ZlU"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Text-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef2-3j-xPN">
                                 <rect key="frame" x="170" y="380" width="75" height="21"/>
@@ -77,11 +80,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pa-F4-ZTi">
-                                <rect key="frame" x="181" y="470" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Take Picture" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFt-FX-z3P">
                                 <rect key="frame" x="39" y="433" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -95,7 +93,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add picture from the Library"/>
                                 <connections>
-                                    <action selector="PictureFromLibraryTapped:" destination="IDK-72-rtw" eventType="touchUpInside" id="rid-hM-Xvz"/>
+                                    <action selector="pictureFromLibraryTapped:" destination="IDK-72-rtw" eventType="touchUpInside" id="KDQ-k0-7ob"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pa-F4-ZTi">
+                                <rect key="frame" x="183" y="501" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitTapped:" destination="IDK-72-rtw" eventType="touchUpInside" id="Nr8-LZ-DlQ"/>
+                                    <action selector="submitTapped:" destination="Wmw-NO-dgd" eventType="touchUpInside" id="zSs-1T-TKO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -104,10 +111,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add New Image" id="CUC-k1-fJw"/>
                     <connections>
+                        <outlet property="captionText" destination="ymT-b1-Sih" id="kR8-1Y-zuA"/>
                         <outlet property="newImage" destination="kLS-Hs-kVy" id="AXR-tX-6ev"/>
+                        <outlet property="newImageView" destination="kLS-Hs-kVy" id="kSg-5Y-zge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="be3-xk-0yO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Wmw-NO-dgd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1721.7391304347827" y="127.90178571428571"/>
         </scene>

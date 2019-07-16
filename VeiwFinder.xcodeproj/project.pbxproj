@@ -42,8 +42,6 @@
 		18E8E7ED22DD1A4B00C5F5EC = {
 			isa = PBXGroup;
 			children = (
-				18E8E81222DD427200C5F5EC /* PostTableViewController.swift */,
-				18E8E80E22DD2BB000C5F5EC /* AddPhotoViewController.swift */,
 				18E8E7F822DD1A4B00C5F5EC /* VeiwFinder */,
 				18E8E7F722DD1A4B00C5F5EC /* Products */,
 			);
@@ -60,6 +58,8 @@
 		18E8E7F822DD1A4B00C5F5EC /* VeiwFinder */ = {
 			isa = PBXGroup;
 			children = (
+				18E8E80E22DD2BB000C5F5EC /* AddPhotoViewController.swift */,
+				18E8E81222DD427200C5F5EC /* PostTableViewController.swift */,
 				18E8E7F922DD1A4B00C5F5EC /* AppDelegate.swift */,
 				18E8E7FD22DD1A4B00C5F5EC /* Main.storyboard */,
 				18E8E80322DD1A4C00C5F5EC /* Assets.xcassets */,
